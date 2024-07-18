@@ -128,7 +128,7 @@ const Navbar = React.memo(() => {
                 <div className="overlay" ref={navRef}>
                     <div className="overlay-content rounded-3xl shadow-3xl">
                         <nav className="nav-menu">
-                            <a href="#" className="nav-link">Home</a>
+                            <a href="/" className="nav-link">Home</a>
                             <a href="#" className="nav-link models">Models
                                 <ul className='dropdown'>
                                     <li className='text-xl text-black'><a href="#" className="dropdown-item">Men</a></li>
@@ -136,9 +136,9 @@ const Navbar = React.memo(() => {
                                     <li className='text-xl text-black'><a href="#" className="dropdown-item">Other</a></li>
                                 </ul>
                             </a>
-                            <a href="#" className="nav-link">Become Model</a>
-                            <a href="#" className="nav-link">Workshop</a>
-                            <a href="#" className="nav-link">Contact</a>
+                            <a href="/model" className="nav-link">Become Model</a>
+                            <a href="/workshop" className="nav-link">Workshop</a>
+                            <a href="/contact" className="nav-link">Contact</a>
                         </nav>
                     </div>
                 </div>

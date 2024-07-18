@@ -7,7 +7,7 @@ import ShowsSection from '../components/common/Portfolio/ShowSection';
 
 const Portfolio: React.FC = () => {
     return (
-        <div className="font-sans">
+        <div className="font-sans bg-gray-100">
             <Navbar />
             <Hero />
             <PhotoGallery />

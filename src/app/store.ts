@@ -1,6 +1,17 @@
-import { configureStore } from "@reduxjs/toolkit";
-import Slice from '../features/Slice'
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
+import sliceReducer from '../features/Slice';
 
-export const store = configureStore({
-    reducer: Slice,
-})
+
+// Combine all reducers
+const rootReducer = combineReducers({
+  addItem: sliceReducer,
+});
+
+// Create and export the store
+const store = configureStore({
+  reducer: rootReducer,
+});
+
+export type RootState = ReturnType<typeof rootReducer>;
+export default store;

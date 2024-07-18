@@ -16,7 +16,7 @@ const VideoSection: React.FC = () => {
                         <video controls className="w-full">
                             <source src={video.url} type="video/mp4" />
                         </video>
-                        <p className="mt-2 text-center">{video.title}</p>
+                        <p className="mt-2 text-center text-5xl">{video.title}</p>
                     </div>
                 ))}
             </div>

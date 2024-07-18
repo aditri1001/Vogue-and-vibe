@@ -1,51 +1,61 @@
-import { createSlice, PayloadAction, nanoid } from "@reduxjs/toolkit";
+import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
 
-// Define the shape of a Todo item
-interface Todo {
-    fullName: '',
-    email: '',
-    number: '',
-    dob: '',
-    gender: '',
-    height: '',
-    portfolioLink: '',
-    address: '',
-    instagramHandle: '',
-    profession: '',
-    about: '',
-    leftSideShot: null,
-    rightSideShot: null,
-    headShot: null,
-    fullLength: null,
-    privacyNotice: false,
-    ageConsent: false,
+// Define the type for the items in the slice
+interface ItemType {
+    id: string;
+    fullName: string;
+    email: string;
+    number: string;
+    dob: string;
+    gender: string;
+    height: string;
+    portfolioLink: string;
+    address: string;
+    instagramHandle: string;
+    profession: string;
+    about: string;
+    leftSideShot: string | null;
+    rightSideShot: string | null;
+    headShot: string | null;
+    fullLength: string | null;
+    privacyNotice: boolean;
+    ageConsent: boolean;
 }
 
-// Define the initial state shape
-interface TodoState {
-    todos: Todo[];
-}
+// Define the initial state with the type
+const initialState: { slice: ItemType[] } = { slice: [] };
 
-// Initialize the state
-const initialState: TodoState = {
-    todos: []
-};
-
-// Create the slice
-const Slice = createSlice({
+export const addItems = createSlice({
     name: 'todo',
     initialState,
     reducers: {
-        addTodo: (state, action: PayloadAction<Omit<Todo, 'id'>>) => {
-            const todo = {
+        addItem: (state, action: PayloadAction<Omit<ItemType, 'id'>>) => {
+            const addThis = {
                 id: nanoid(),
-                ...action.payload
+                fullName: action.payload.fullName,
+                email: action.payload.email,
+                number: action.payload.number,
+                dob: action.payload.dob,
+                gender: action.payload.gender,
+                height: action.payload.height,
+                portfolioLink: action.payload.portfolioLink,
+                address: action.payload.address,
+                instagramHandle: action.payload.instagramHandle,
+                profession: action.payload.profession,
+                about: action.payload.about,
+                leftSideShot: action.payload.leftSideShot,
+                rightSideShot: action.payload.rightSideShot,
+                headShot: action.payload.headShot,
+                fullLength: action.payload.fullLength,
+                privacyNotice: action.payload.privacyNotice,
+                ageConsent: action.payload.ageConsent
             }
-            state.todos.push(todo);
+            state.slice.push(addThis);
+            // console.log('State after adding item:', JSON.parse(JSON.stringify(state)));
         }
     }
 })
 
-// Export actions and reducer
-export const { addTodo } = Slice.actions;
-export default Slice.reducer;
+export const { addItem } = addItems.actions;
+
+export default addItems.reducer;

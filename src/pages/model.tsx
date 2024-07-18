@@ -4,13 +4,13 @@ import * as Yup from 'yup';
 import Navbar from "../components/common/Navbar/Navbar";
 import "../components/common/Navbar/Navbar.css";
 import "./form.css";
-// import { useDispatch } from 'react-redux';
-// import { addTodo } from '../features/Slice'
-// import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux';
+import { addItem } from '../features/Slice';
+// import { RootState } from '../App/store';
 
 const Form: React.FC = () => {
-    // const dispatch = useDispatch();
-    // const list = useSelector((state) => state.todo)
+    const dispatch = useDispatch();
+    // const items = useSelector((state: RootState) => state.addItem);
 
     const [images, setImages] = useState<string[]>(["", "", "", ""]);
     const [fileNames, setFileNames] = useState({
@@ -27,15 +27,10 @@ const Form: React.FC = () => {
             formik.setFieldValue(fieldName, file);
             setFileNames(prev => ({ ...prev, [fieldName]: file.name }));
 
-            // Create a URL for the file and update the images array
             const fileURL = URL.createObjectURL(file);
-
             setImages(prevImages => {
-
                 const newImages = [...prevImages];
-
                 newImages[index] = fileURL;
-
                 return newImages;
             });
 
@@ -44,7 +39,6 @@ const Form: React.FC = () => {
             setFileNames(prev => ({ ...prev, [fieldName]: '' }));
             setImages(prevImages => {
                 const newImages = [...prevImages];
-
                 newImages[index] = "";
                 return newImages;
             });
@@ -64,10 +58,10 @@ const Form: React.FC = () => {
             instagramHandle: '',
             profession: '',
             about: '',
-            leftSideShot: null,
-            rightSideShot: null,
-            headShot: null,
-            fullLength: null,
+            leftSideShot: '' as string | null,
+            rightSideShot: '' as string | null,
+            headShot: '' as string | null,
+            fullLength: '' as string | null,
             privacyNotice: false,
             ageConsent: false,
         },
@@ -87,8 +81,27 @@ const Form: React.FC = () => {
             ageConsent: Yup.boolean().oneOf([true], 'Required'),
         }),
         onSubmit: (values) => {
-            // dispatch(addTodo(values));
-            // console.log(list);
+            const newNote = {
+                fullName: values.fullName,
+                email: values.email,
+                number: values.number,
+                dob: values.dob,
+                gender: values.gender,
+                height: values.height,
+                portfolioLink: values.portfolioLink,
+                address: values.address,
+                instagramHandle: values.instagramHandle,
+                profession: values.profession,
+                about: values.about,
+                leftSideShot: values.leftSideShot,
+                rightSideShot: values.rightSideShot,
+                headShot: values.headShot,
+                fullLength: values.fullLength,
+                privacyNotice: values.privacyNotice,
+                ageConsent: values.ageConsent,
+            };
+            console.log(newNote);
+            dispatch(addItem(newNote));
         },
     });
 
@@ -98,18 +111,18 @@ const Form: React.FC = () => {
             <form onSubmit={formik.handleSubmit} className="form-container">
                 <header className="flex justify-center items-center space-x-4">
                     <div>
-                        <h1 className="text-9xl font-bodoni-moda">S2</h1>
+                        <h1 className=" text-9xl font-bodoni-moda">S2</h1>
                     </div>
                     <div className="">
                         <div className='text-left'>
-                            <h1 className="text-5xl font-bodoni-moda">TALENTS & EVENTS</h1>
-                            <h2 className="text-5xl font-bold text-red-500 font-inria-serif ">CONTACT</h2>
-                            <hr className="border-red-500 ml-2 w-52" style={{ borderTopWidth: '3px' }} />
+                            <h1 className="  text-5xl font-bodoni-moda">TALENTS & EVENTS</h1>
+                            <h2 className=" text-5xl font-bold text-red-500 font-inria-serif ">BECOME A MODEL</h2>
+                            <hr className="border-red-500 ml-2 w-" style={{ borderTopWidth: '3px' }} />
                         </div>
                     </div>
                 </header>
-                <div className='flex items-center'>
-                    <div className='w-4/5'>
+                <div className='flex items-center max-[834px]:flex-col-reverse'>
+                    <div className='w-full min-[834px]:w-4/5'>
                         <div className='w-full'>
                             <input
                                 id="fullName"
@@ -174,6 +187,7 @@ const Form: React.FC = () => {
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     checked={formik.values.gender === 'Male'}
+                                    className='mr-2'
                                 />
                                 Male
                             </label>
@@ -185,6 +199,7 @@ const Form: React.FC = () => {
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     checked={formik.values.gender === 'Female'}
+                                    className='mr-2'
                                 />
                                 Female
                             </label>
@@ -196,6 +211,7 @@ const Form: React.FC = () => {
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     checked={formik.values.gender === 'Others'}
+                                    className='mr-2'
                                 />
                                 Others
                             </label>
@@ -273,8 +289,8 @@ const Form: React.FC = () => {
                             />
                         </div>
                     </div>
-                    <div className="container sm:w-1/2 mx-auto p-5">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <div className="container max-[834px]:w-full min-[834px]:w-1/2 mx-auto p-5">
+                        <div className="grid max-[834px]:grid-cols-2 max-[1024px]:grid-cols-1 lg:grid-cols-2 gap-5">
                             {images.map((src, index) => (
                                 <div key={index} className="relative w-full h-1/4 pb-[100%] bg-gray-400">
                                     <img src={src} alt={`model-${index}`} className="absolute top-0 left-0 w-full h-full object-cover rounded-lg" />
