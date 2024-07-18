@@ -1,9 +1,10 @@
 // import React from 'react';
-
+import Navbar from "../components/common/Navbar/Navbar";
 
 const Photographers = () => {
     return (
         <>
+            <Navbar />
             <div className="bg-[#F8F8FF] overflow-hidden" >
 
                 <div className="flex h-full pt-10 items-center bg-[#F8F8FF]">

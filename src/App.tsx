@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import Model from "./pages/model"
 import Portfolio from './pages/portfolio'
 import Photographers from './pages/SectionPage'
-import About from './pages/About'
+import Contact from './pages/Contact'
 import ModelGallery from './pages/ShowModel'
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
         <Route path="/model" element={<Model />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/photographers" element={<Photographers />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/modelGallery" element={<ModelGallery />} />
       </Routes>
     </Router>
