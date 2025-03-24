@@ -2,8 +2,8 @@ import './App.css'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Model from "./pages/Model"
-import Portfolio from './pages/Portfolio'
+import Model from "./pages/model"
+import Portfolio from './pages/portfolio'
 import SectionPage from './pages/SectionPage'
 import Contact from './pages/Contact'
 import ModelGallery from './pages/ModelGallery'
