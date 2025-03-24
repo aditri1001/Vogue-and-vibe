@@ -7,7 +7,7 @@ import { RootState, AppDispatch } from '../Redux/store';
 
 const ModelGallery: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
-    const models = useSelector((state: RootState) => state.addItem.slice); // Corrected
+    // const models = useSelector((state: RootState) => state.addItem.slice);
     const loading = useSelector((state: RootState) => state.addItem.loading);
     const error = useSelector((state: RootState) => state.addItem.error);
 
