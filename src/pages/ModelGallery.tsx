@@ -31,14 +31,14 @@ const ModelGallery: React.FC = () => {
                     </div>
                 </div>
             </header>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16 mt-16 ml-10 mr-10">
+            <div className="grid grid-cols-1 xs:grid-cols-2 xs:grid-rows-2 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-3 lg:grid-cols-4 lg:grid-rows-4 gap-16 mt-16 ml-10 mr-10 w-full">
                 {models.map((model, index) => (
-                    <div key={index} className="items-center mb-10">
+                    <div key={index} className="items-center mb-10 w-full">
                         <img src={model.imageUrl} alt={`${model.name}`} className="w-4/5 h-full" />
-                        <div className="mt-5 ml-3 mr-3 text-left flex justify-between w-4/5">
+                        <div className="mt-5  text-left flex justify-between w-4/5">
                             <div>
-                                <p className="font-semibold">{model.name}</p>
-                                <p className="text-red-500 font-semibold">{model.country}</p>
+                                <p className="font-semibold text-base lg:text-2xl">{model.name}</p>
+                                <p className="text-red-500 font-semibold text-base lg:text-2xl">{model.country}</p>
                             </div>
                             <div>
                                 <img src='src/assets/icons/showModel/instagram_.png' />
@@ -55,4 +55,3 @@ const ModelGallery: React.FC = () => {
 }
 
 export default ModelGallery;
-

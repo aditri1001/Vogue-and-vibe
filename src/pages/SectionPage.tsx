@@ -1,7 +1,7 @@
 // import React from 'react';
 import Navbar from "../components/common/Navbar/Navbar";
 
-const Photographers = () => {
+const SectionPage = () => {
     return (
         <>
             <Navbar />
@@ -217,4 +217,4 @@ const Photographers = () => {
     );
 }
 
-export default Photographers;
+export default SectionPage;

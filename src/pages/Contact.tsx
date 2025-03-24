@@ -23,14 +23,14 @@ const Contact: React.FC = () => {
             </div>
           </div>
         </header>
-        <section className="relative flex justify-center my-5 min-h-20 p-20 mt-10">
+        <section className="relative flex justify-center my-5 min-h-20  lg:p-20 mt-10">
           <div className="absolute inset-0 bg-cover bg-no-repeat bg-center opacity-30 min-h-20" style={{ backgroundImage: "url('src/assets/images/Frame 111.png')" }}></div>
           <div className="relative p-5" style={{ minHeight: "501px" }}>
-            <h1 className="text-7xl font-bold text-red-600 font-inria-serif mb-10">About us</h1>
-            <p className="text-2xl mt-4 font-poppins m-10">
+            <h1 className="max-[400]:text-base text-lg sm:text-5xl lg:text-7xl font-bold text-red-600 font-inria-serif mb-10">About us</h1>
+            <p className=" max-[400px]:text-[9px] sm:text-base lg:text-2xl mt-4 font-poppins min-[400px]:m-10 min-[400px]:px-16 font-normal">
               The 2023 show will have lots to see and do, for all ages. We hope to provide a wide range of interesting hobbies and activities for you to discover new ways to entertain yourselves and your families. Hobbies bring a sense of fun and freedom to life that can help us with today’s stressful lifestyles. The Big Model and Hobby Show 2023 is more than just a model railway show.
             </p>
-            <p className="text-2xl mt-4 font-poppins m-10">
+            <p className=" max-[400px]:text-[9px] sm:text-base lg:text-2xl mt-4 font-poppins min-[400px]:m-10 min-[400px]:px-16">
               The 2023 show will have lots to see and do, for all ages. We hope to provide a wide range of interesting hobbies and activities for you to discover new ways to entertain yourselves and your families. Hobbies bring a sense of fun and freedom to life that can help us with today’s stressful lifestyles. The Big Model and Hobby Show 2023 is more than just a model railway show.
             </p>
           </div>
