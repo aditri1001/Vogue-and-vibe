@@ -3,14 +3,13 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Navbar from "../components/common/Navbar/Navbar";
 import "../components/common/Navbar/Navbar.css";
-import "./form.css";
+import "../styles/Model.css";
 import { useDispatch } from 'react-redux';
-import { addItem } from '../features/Slice';
-// import { RootState } from '../App/store';
+import { createModelRequest } from '../Redux/slice/Slice';
+import { AppDispatch } from '../Redux/store';
 
 const Form: React.FC = () => {
-    const dispatch = useDispatch();
-    // const items = useSelector((state: RootState) => state.addItem);
+    const dispatch: AppDispatch = useDispatch(); 
 
     const [images, setImages] = useState<string[]>(["", "", "", ""]);
     const [fileNames, setFileNames] = useState({
@@ -100,8 +99,8 @@ const Form: React.FC = () => {
                 privacyNotice: values.privacyNotice,
                 ageConsent: values.ageConsent,
             };
-            console.log(newNote);
-            dispatch(addItem(newNote));
+            // console.log(newNote);
+            dispatch(createModelRequest(newNote));
         },
     });
 
@@ -111,13 +110,13 @@ const Form: React.FC = () => {
             <form onSubmit={formik.handleSubmit} className="form-container">
                 <header className="flex justify-center items-center space-x-4">
                     <div>
-                        <h1 className=" text-9xl font-bodoni-moda">S2</h1>
+                        <h1 className=" text-9xl font-bodoni-moda">V2</h1>
                     </div>
                     <div className="">
                         <div className='text-left'>
-                            <h1 className="  text-5xl font-bodoni-moda">TALENTS & EVENTS</h1>
+                            <h1 className=" ml-0 pl-0 text-5xl font-bodoni-moda">VOGUE & VIBE</h1>
                             <h2 className=" text-5xl font-bold text-red-500 font-inria-serif ">BECOME A MODEL</h2>
-                            <hr className="border-red-500 ml-2 w-" style={{ borderTopWidth: '3px' }} />
+                            <hr className="border-red-500 ml-2 " style={{ borderTopWidth: '3px' }} />
                         </div>
                     </div>
                 </header>

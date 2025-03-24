@@ -20,11 +20,11 @@ const Hero: React.FC = () => {
                
                 <div className="flex justify-center items-center space-x-4">
                 <div>
-                    <h1 className=" text-9xl font-bodoni-moda">S2</h1>
+                    <h1 className=" text-9xl font-bodoni-moda">V2</h1>
                 </div>
                 <div className="">
                     <div className='text-left'>
-                        <h1 className="  text-5xl font-bodoni-moda">TALENTS & EVENTS</h1>
+                        <h1 className="  text-5xl font-bodoni-moda">VOGUE & VIBE</h1>
                       
                         <hr className="border-red-500 ml-2 w-" style={{ borderTopWidth: '3px' }} />
                         </div>

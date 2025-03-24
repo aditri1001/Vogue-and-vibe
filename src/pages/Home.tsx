@@ -6,11 +6,11 @@ import Navbar from '../components/common/Navbar/Navbar';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
-const Home = React.memo(() => {
-    const modelsRef = useRef<HTMLDivElement>(null);
+const LandingPage = React.memo(() => {
+    const servicesRef = useRef<HTMLDivElement>(null);
     gsap.registerPlugin(ScrollToPlugin);
-    const scrollToModels = () => {
-        modelsRef.current?.scrollIntoView({ behavior: "smooth" });
+    const scrollToServices = () => {
+        servicesRef.current?.scrollIntoView({ behavior: "smooth" });
     };
 
     useEffect(() => {
@@ -18,12 +18,12 @@ const Home = React.memo(() => {
             if (event.deltaY > 30) {
                 console.log("scrolling down");
                 gsap.to(window, {
-                    scrollTo: { y: modelsRef.current?.offsetTop, autoKill: false },
+                    scrollTo: { y: servicesRef.current?.offsetTop, autoKill: false },
                     duration: 1,
                     ease: "power3.out",
                     onStart: () => {
-                        // Fade in the modelsRef section as it comes into view
-                        gsap.fromTo(modelsRef.current, { autoAlpha: 0 }, { autoAlpha: 1, duration: 2 });
+                        // Fade in the servicesRef section as it comes into view
+                        gsap.fromTo(servicesRef.current, { autoAlpha: 0 }, { autoAlpha: 1, duration: 2 });
                     }
                 });
             }
@@ -36,11 +36,9 @@ const Home = React.memo(() => {
         };
     }, []);
     
-    
-    
     return (
         <div>
-            {/* Landing component */}
+            {/* Hero section */}
             <section className="w-full h-screen overflow-hidden">
                 <video
                     className="absolute top-0 left-0 w-full h-full object-cover"
@@ -54,29 +52,32 @@ const Home = React.memo(() => {
 
                 {/* Navbar component */}
                 <Navbar />
-                {/* Hero component */}
+                
+                {/* Branding */}
                 <div className="absolute bottom-10 left-10 text-white">
-                    <span className="text-6xl font-bold hero">S2</span>
-                    <span className="text-2xl hero">TALENTS & EVENTS</span>
+                    <span className="text-6xl font-bold hero">V2</span> 
+                    {/* <br/> */}
+                    <span className="text-2xl hero">VOGUE & VIBE</span>
                 </div>
-                {/* Down Arrow component */}
+                
+                {/* Down Arrow */}
                 <div className="absolute bottom-10 right-10">
-                    <button className="bg-red-500 w-10 h-10 rounded-full flex items-center justify-center"
-                        onClick={scrollToModels}
+                    <button className="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center"
+                        onClick={scrollToServices}
                     >
                         <img src={scrollDownIcon} alt="Down Arrow" />
                     </button>
                 </div>
             </section>
             
-            {/* Models card component */}
-            <section ref={modelsRef} className="w-full h-screen">
+            {/* Services section */}
+            <section ref={servicesRef} className="w-full h-screen">
                 <div className="w-full h-full flex items-center justify-center">
-                    <h1 className="text-4xl font-bold">Models</h1>  
+                    <h1 className="text-4xl font-bold">Our Services</h1>  
                 </div>
             </section>
         </div>
     );
 });
 
-export default Home;
+export default LandingPage;
