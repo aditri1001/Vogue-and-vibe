@@ -7,6 +7,8 @@ import Portfolio from './pages/portfolio'
 import SectionPage from './pages/SectionPage'
 import Contact from './pages/Contact'
 import ModelGallery from './pages/ModelGallery'
+import NotFound from './pages/NotFound'
+
 function App() {
 
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path="/section-page" element={<SectionPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/model-gallery" element={<ModelGallery />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   )
